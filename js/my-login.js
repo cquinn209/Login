@@ -11,7 +11,13 @@
 
 $(function() {
 
+<<<<<<< HEAD
 
+=======
+	// author badge :)
+	var author = '';
+	$("body").append(author);
+>>>>>>> 48de72399d2d80be648ffe8be44028b7ffe38bd9
 
 	$("input[type='password'][data-eye]").each(function(i) {
 		var $this = $(this),
