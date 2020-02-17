@@ -1,17 +1,24 @@
 <?php
+
 // Include config file
 require_once "config.php";
  
 // Define variables and initialize with empty values
-$username = $password = $confirm_password = "";
-$username_err = $password_err = $confirm_password_err = "";
- 
+$username = "";
+$password = "";
+$confirm_password = ""; 
+
+$username_err = "";
+$password_err = "";
+$confirm_password_err = ""; 
+
+
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Validate username
     if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter a username.";
+        $username_err = "Please enter a valid username";
     } else{
         // Prepare a select statement
         $sql = "SELECT id FROM users WHERE username = ?";
@@ -80,7 +87,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Redirect to login page
                 header("location: login.php");
             } else{
-                echo "Something went wrong. Please try again later.";
+                echo "Something went wrong.";
             }
         }
          
@@ -93,6 +100,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
  
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
